@@ -7,24 +7,114 @@
   </div>
 </div>
 <div class="main">
+  <form>
+    <div class="grid">
+      <div>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label>Buscar por modelo o marca</mat-label>
+          <input matInput type="text" [formControl]="search" class="w-100" />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
   <div class="table-content">
     <table>
       <tr>
         <th>
-          Nombre
+          Código empleado
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnCode === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up' "
+            (click)="changeCode()"
+          ></i>
         </th>
-        <th>Adeudo Total</th>
-        <th class="last"></th>
+        <th>
+          Nombre(s)
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnName === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up'"
+            (click)="changeName()"
+          ></i>
+        </th>
+        <th>
+          Apellido Paterno
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnLastName === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up'"
+            (click)="changeLastName()"
+          ></i>
+        </th>
+        <th>
+          Apellido Materno
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnMotherSurname === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up'"
+            (click)="changeMotherSurname()"
+          ></i>
+        </th>
+        <th>
+          Departamento
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnDepartament === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up'"
+            (click)="changeDepartament()"
+          ></i>
+        </th>
+        <th>
+          Puesto
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnPosition === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up'"
+            (click)="changePosition()"
+          ></i>
+        </th>
+        <th>
+          Carnet
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnCarnet === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up' "
+            (click)="changeCarnet()"
+          ></i>
+        </th>
+        <th>
+          Status
+          <i
+            class="fa-solid fa-caret-up"
+            [ngClass]=" changeColumnStatus === true ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up'"
+            (click)="changeStatus()"
+          ></i>
+        </th>
+        <th class="last">Detalle</th>
       </tr>
-      <tr>
+      <tr *ngFor="let employee of employees">
         <td>
-          <p>Nombre</p>
+          <p> {{employee.code_employee}} </p>
         </td>
-        <td>Adeudo
+        <td>
+          <p>{{employee.name}}</p>
+        </td>
+        <td>
+          <p>{{employee.last_name}}</p>
+        </td>
+        <td>
+          <p>{{employee.mother_surname}}</p>
+        </td>
+        <td>
+          <p>{{employee.departament}}</p>
+        </td>
+        <td>
+          <p>{{employee.position}}</p>
+        </td>
+        <td>
+          <p>{{employee.carnet}}</p>
+        </td>
+        <td>
+          <p>{{employee.status}}</p>
         </td>
         <td class="last">
-          <a class="me-3"> <i class="fa fa-trash"></i></a>
-          <i class="fa fa-edit"></i>
+          <a>
+            <i class="fa-solid fa-circle-right"></i>
+          </a>
         </td>
       </tr>
     </table>

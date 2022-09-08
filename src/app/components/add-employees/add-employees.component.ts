@@ -62,7 +62,7 @@ export class AddEmployeesComponent implements OnInit {
   ngOnInit(): void {
     this._employee.getEmployees().subscribe((data:Array<Employee>) => {
         this.employees = data;
-    })
+    });
     this.form.controls['codeControl'].valueChanges.subscribe((inputCode:string) =>{
       this.validateCodeEmployee(inputCode);
     });
@@ -72,8 +72,10 @@ export class AddEmployeesComponent implements OnInit {
   }
 
   public saveData(): void{
+    this._general._spinner.show();
     this.validateName();
     if(this.sameName){
+      this._general._spinner.hide();
       this._general.alertError('Nombre ya utilizado','');
       return;
     }
@@ -93,6 +95,7 @@ export class AddEmployeesComponent implements OnInit {
 
     this._employee.addEmployee(element);
     this._dialogRef.close();
+    this._general._spinner.hide();
     this._general.alertSuccess('Empleado creado existosamente', '');
     console.log(element);
   }
@@ -122,9 +125,8 @@ export class AddEmployeesComponent implements OnInit {
     }
   }
 
-  public validateName(): any {
+  public validateName(): void {
     const fullName = `${this.form.controls['nameControl'].value.toLocaleLowerCase().trim()}${this.form.controls['lastNameControl'].value.toLocaleLowerCase().trim()}${this.form.controls['motherSurnameControl'].value.toLocaleLowerCase().trim()}`;
-    console.log('fullName', fullName);
     const validatefullName = this.employees.some((employee: Employee) => {
       return `${employee.name.toLocaleLowerCase().trim()}${employee.last_name.toLocaleLowerCase().trim()}${employee.mother_surname.toLocaleLowerCase().trim()}` === fullName.toLocaleLowerCase().trim()
     });

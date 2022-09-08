@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import Swal, { SweetAlertIcon, SweetAlertPosition } from'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
 export class GeneralService {
 
-  constructor() { }
+  constructor(public _spinner: NgxSpinnerService) { }
 
   public swalTimer(
     position: SweetAlertPosition,

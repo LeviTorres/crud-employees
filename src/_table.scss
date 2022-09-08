@@ -1,0 +1,129 @@
+.grid {
+  display: flex;
+  margin-top: 20px;
+  padding-top: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  background-color: #f3f3f3;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  div {
+    margin-left: 5px;
+    mat-form-field {
+      width: 200px;
+    }
+    mat-label {
+      font-size: 12px;
+    }
+    @media (max-width: 825px) {
+      mat-form-field {
+        width: 150px;
+      }
+    }
+    @media (max-width: 645px) {
+      mat-form-field {
+        width: 100px;
+      }
+      mat-label {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.table-content {
+  display: flex;
+  overflow-x: auto;
+  table {
+    margin-top: 0px;
+    width: 100%;
+    min-width: 100%;
+    background-color: #fff;
+
+    tr {
+      width: 100%;
+    }
+    th {
+      height: 35px;
+      line-height: 18px;
+      font-size: 14px;
+      color: #1e1e1e;
+      padding: 10px 15px;
+      border-bottom: 0;
+      background-color: #f3f3f3;
+      position: sticky;
+      top: 0px;
+      font-weight: 600;
+    }
+    td {
+      font-size: 15px;
+      padding: 10px 15px;
+      border-right: 1px solid #d6d6d6;
+      font-size: 12px;
+      a {
+        color: #37476e;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .last {
+    border-right: 0 !important;
+
+    a {
+      color: #37476e;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: #fd1717;
+      transition: 0.5s;
+    }
+  }
+
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.dataPerPage {
+  display: grid;
+  grid-template-columns: 200px 100px 100px 100px 100px;
+  h2 {
+    text-align: center;
+    margin-top: 10px;
+    color: gray;
+  }
+  button {
+    height: 40px;
+    width: 60px;
+    text-align: center;
+    background-color: #fd1717;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+.last {
+  text-align: center;
+  vertical-align: sub;
+
+  a {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+}

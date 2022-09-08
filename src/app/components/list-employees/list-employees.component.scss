@@ -9,21 +9,12 @@ table {
   margin-right: 130px;
 }
 
-.pending-text {
-  color: red;
-  font-weight: 800;
+.fa-solid {
+  width: 20px;
 }
 
-.paid-text {
-  color: black;
-  font-weight: 800;
+i {
+  cursor: pointer;
 }
 
-.fa-trash {
-  font-size: 12px;
-  color: #cc2727;
-}
 
-.fa-trash:hover {
-  opacity: 0.5;
-}
