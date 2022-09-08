@@ -1,0 +1,29 @@
+.table-container {
+  margin-top: 180px;
+}
+table {
+  width: 75%;
+  margin: 0 auto;
+}
+.flex {
+  margin-right: 130px;
+}
+
+.pending-text {
+  color: red;
+  font-weight: 800;
+}
+
+.paid-text {
+  color: black;
+  font-weight: 800;
+}
+
+.fa-trash {
+  font-size: 12px;
+  color: #cc2727;
+}
+
+.fa-trash:hover {
+  opacity: 0.5;
+}

@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between">
+  <div>
+    <h1>Empleados</h1>
+  </div>
+  <div>
+    <button (click)="addEmployeeDialog()" mat-raised-button color="primary">Nuevo Empleado</button>
+  </div>
+</div>
+<div class="main">
+  <div class="table-content">
+    <table>
+      <tr>
+        <th>
+          Nombre
+        </th>
+        <th>Adeudo Total</th>
+        <th class="last"></th>
+      </tr>
+      <tr>
+        <td>
+          <p>Nombre</p>
+        </td>
+        <td>Adeudo
+        </td>
+        <td class="last">
+          <a class="me-3"> <i class="fa fa-trash"></i></a>
+          <i class="fa fa-edit"></i>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

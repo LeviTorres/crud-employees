@@ -1,0 +1,124 @@
+<header class="d-flex align-items-flex-end">
+  <h2 mat-dialog-title class="col-md-10 p-0">
+    Nuevo empleado
+  </h2>
+  <div class="d-flex justify-content-end w-100">
+    <i mat-dialog-close class="fa-light fa-xmark fa"></i>
+  </div>
+</header>
+<div>
+  <form [formGroup]="form">
+    <div class="d-flex">
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Codigo empleado</mat-label>
+        <input matInput formControlName="codeControl">
+        <mat-error *ngIf="this.form.controls['codeControl'].hasError('required')">
+            Campo requerido
+        </mat-error>
+        <mat-error *ngIf="this.form.controls['codeControl'].hasError('pattern')">
+          Solo recibe números
+        </mat-error>
+        <mat-hint *ngIf="sameCode">Código de empleado ya utilizado</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nameControl">
+        <mat-error *ngIf="this.form.controls['nameControl'].hasError('required')">
+          Campo requerido
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="d-flex">
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Apellido Paterno</mat-label>
+        <input matInput formControlName="lastNameControl">
+        <mat-error *ngIf="this.form.controls['lastNameControl'].hasError('required')">
+          Campo requerido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Apellido Materno</mat-label>
+        <input matInput formControlName="motherSurnameControl">
+        <mat-error *ngIf="this.form.controls['motherSurnameControl'].hasError('required')">
+          Campo requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="d-flex">
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Carnet</mat-label>
+        <input matInput formControlName="carnetControl">
+        <mat-error *ngIf="this.form.controls['carnetControl'].hasError('required')">
+            Campo requerido
+        </mat-error>
+        <mat-error *ngIf="this.form.controls['carnetControl'].hasError('pattern')">
+          Solo recibe números
+        </mat-error>
+        <mat-hint *ngIf="sameCarnet">Carnet ya utilizado</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Puesto</mat-label>
+        <input matInput formControlName="positionControl">
+        <mat-error *ngIf="this.form.controls['positionControl'].hasError('required')">
+          Campo requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="d-flex">
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Departamento</mat-label>
+        <input matInput formControlName="departamentControl">
+        <mat-error *ngIf="this.form.controls['departamentControl'].hasError('required')">
+          Campo requerido
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Gerente</mat-label>
+        <mat-select formControlName="managerControl" required>
+          <mat-option *ngFor="let option of optionManagers" [value]="option">{{
+            option.name
+          }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="this.form.controls['managerControl'].hasError('required')">
+          Campo requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="d-flex">
+      <mat-form-field class="w-100 mx-1 mb-2" appearance="outline">
+        <mat-label>Mentor</mat-label>
+        <mat-select formControlName="mentorControl" required>
+          <mat-option *ngFor="let option of optionMentors" [value]="option">{{
+            option.name
+          }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="this.form.controls['mentorControl'].hasError('required')">
+          Campo requerido
+        </mat-error>
+      </mat-form-field>
+      <div class="w-100 mx-1"></div>
+    </div>
+  </form>
+</div>
+
+<mat-dialog-actions align="end" class="mat">
+  <div></div>
+  <div>
+    <button
+      mat-stroked-button
+      color="primary"
+      mat-dialog-close
+    >
+      Cancelar
+    </button>
+    <button
+      (click)="saveData()"
+      mat-raised-button
+      [disabled]="!form.valid || sameCode || sameCarnet"
+      color="primary"
+      class=" mx-2"
+    >
+      Crear Empleado
+    </button>
+  </div>
+</mat-dialog-actions>
